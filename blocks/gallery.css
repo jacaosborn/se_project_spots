@@ -1,0 +1,97 @@
+.gallery {
+  max-width: 1280px;
+  /* margin: 20px auto 0 auto; */
+  padding: 20px 80px 0 80px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(288px, 413px));
+  /* grid-template-rows: repeat(2); */
+  justify-content: center;
+
+  column-gap: 20px;
+  row-gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: solid 1px #21212166;
+}
+
+.gallery__content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 0;
+  max-width: 100%;
+}
+
+.gallery__photo {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-position: center;
+  background-size: cover;
+  border-radius: 8px;
+}
+
+.gallery__photo-1 {
+  background-image: url(../images/1-photo-by-moritz-feldmann-from-pexels.jpg);
+}
+
+.gallery__photo-2 {
+  background-image: url(../images/2-photo-by-ceiline-from-pexels.jpg);
+}
+
+.gallery__photo-3 {
+  background-image: url(../images/3-photo-by-tubanur-dogan-from-pexels.jpg);
+}
+
+.gallery__photo-4 {
+  background-image: url(../images/4-photo-by-maurice-laschet-from-pexels.jpg);
+}
+
+.gallery__photo-5 {
+  background-image: url(../images/5-photo-by-van-anh-nguyen-from-pexels.jpg);
+}
+
+.gallery__photo-6 {
+  background-image: url(../images/6-photo-by-moritz-feldmann-from-pexels.jpg);
+}
+
+.gallery__photo-label {
+  margin: 12px 0 0 0;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  max-width: 100%;
+}
+
+.gallery__photo-name {
+  margin: 0 0 0 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 85%;
+}
+
+.gallery__like-icon {
+  height: 20px;
+  opacity: 40%;
+}
+
+.gallery__like-icon:hover {
+  opacity: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .gallery {
+    grid-template-columns: 288px;
+    margin: auto;
+  }
+  .gallery__photo-label {
+    font-size: 16px;
+    line-height: 1;
+  }
+  .gallery__like-icon {
+    height: 18px;
+  }
+}

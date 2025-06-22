@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A new image sharing site from the devs at TripleTen"
+    />
+    <meta name="author" content="Jacob Osborn" />
+    <meta name="keywords" content="image sharing, travel" />
+    <title>Spots</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="shortcut icon" href="../favicon.ico" />
+  </head>
+  <body class="content">
+    <header class="header">
+      <!-- logo bar -->
+      <div class="header__logo-bar">
+        <img class="header__logo" src="../images/Logo.png" alt="Spots Logo" />
+      </div>
+      <!-- profile and new post section -->
+      <div class="header__main">
+        <!--container for profile pic, user deets, and edit button-->
+        <div class="header__avatar-section">
+          <!--container for profile pic only-->
+          <div class="header__photo"></div>
+          <!--container for user info + edit button-->
+          <div class="header__user-info">
+            <h2 class="header__user-name">Bessie Coleman</h2>
+            <p class="header__user-description">Civil Aviator</p>
+            <!--container for the edit icon and text to create a button-->
+            <div class="header__edit-button">
+              <img
+                class="header__edit-icon"
+                src="../images/Edit-Icon.svg"
+                alt="Edit profile button"
+              />
+              <p class="header__edit-text">Edit Profile</p>
+            </div>
+          </div>
+        </div>
+        <!--new post button-->
+        <div class="header__new-post-button">
+          <img
+            class="header__new-post-icon"
+            src="../images/Plus-icon.png"
+            alt="New Post Button"
+          />
+          <p class="header__new-post-text">New Post</p>
+        </div>
+      </div>
+    </header>
+    <main class="content">
+      <!--grid for all photos-->
+      <div class="gallery">
+        <!--container for image, label, like-->
+        <div class="gallery__content">
+          <div class="gallery__photo gallery__photo-1"></div>
+          <!--container for label, like-->
+          <div class="gallery__photo-label">
+            <p class="gallery__photo-name">Val Thorens</p>
+            <img
+              src="../images/Like-Icon.png"
+              alt="Like Icon"
+              class="gallery__like-icon"
+            />
+          </div>
+        </div>
+        <div class="gallery__content">
+          <div class="gallery__photo gallery__photo-2"></div>
+          <div class="gallery__photo-label">
+            <p class="gallery__photo-name">Restaurant terrace</p>
+            <img
+              src="../images/Like-Icon.png"
+              alt="Like Icon"
+              class="gallery__like-icon"
+            />
+          </div>
+        </div>
+        <div class="gallery__content">
+          <div class="gallery__photo gallery__photo-3"></div>
+          <div class="gallery__photo-label">
+            <p class="gallery__photo-name">An outdoor cafe</p>
+            <img
+              src="../images/Like-Icon.png"
+              alt="Like Icon"
+              class="gallery__like-icon"
+            />
+          </div>
+        </div>
+        <div class="gallery__content">
+          <div class="gallery__photo gallery__photo-4"></div>
+          <div class="gallery__photo-label">
+            <p class="gallery__photo-name">
+              A very long bridge, over the forest...
+            </p>
+            <img
+              src="../images/Like-Icon.png"
+              alt="Like Icon"
+              class="gallery__like-icon"
+            />
+          </div>
+        </div>
+        <div class="gallery__content">
+          <div class="gallery__photo gallery__photo-5"></div>
+          <div class="gallery__photo-label">
+            <p class="gallery__photo-name">Tunnel with morning light</p>
+            <img
+              src="../images/Like-Icon.png"
+              alt="Like Icon"
+              class="gallery__like-icon"
+            />
+          </div>
+        </div>
+        <div class="gallery__content">
+          <div class="gallery__photo gallery__photo-6"></div>
+
+          <div class="gallery__photo-label">
+            <p class="gallery__photo-name">Mountain house</p>
+            <img
+              src="../images/Like-Icon.png"
+              alt="Like Icon"
+              class="gallery__like-icon"
+            />
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">2023 © Spots</p>
+    </footer>
+  </body>
+</html>
