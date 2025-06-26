@@ -1,0 +1,136 @@
+.profile__main {
+  display: flex;
+  margin: 34px 0 0;
+  justify-content: space-between;
+  border-bottom: solid 1px #21212166;
+  font-family: "Poppins", Arial, sans-serif;
+  align-items: flex-end;
+}
+.profile__avatar-section {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.profile__photo {
+  width: 190px;
+  height: 190px;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../images/avatar.jpg);
+  border-radius: 8px;
+}
+
+.profile__user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.profile__user-name {
+  margin: 0 0 0 20px;
+  font-weight: 500;
+  font-size: 32px;
+  color: #212121;
+  line-height: 1;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
+}
+
+.profile__user-description {
+  margin: 12px 0 0 20px;
+  font-weight: 500;
+  line-height: 1;
+  font-size: 16px;
+  color: #212121;
+  opacity: 70%;
+  flex-grow: 1;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
+}
+
+.profile__edit-button {
+  cursor: pointer;
+  margin: 0 0 0 20px;
+  display: flex;
+  gap: 2px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #212121;
+  opacity: 70%;
+  background: none;
+  border: none;
+}
+
+.profile__edit-button:hover {
+  opacity: 100%;
+}
+
+.profile__new-post-button {
+  cursor: pointer;
+  height: 52px;
+  width: 149px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  gap: 8px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: #fcf5e5;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 640px) {
+  .profile__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile__avatar-section {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0 20px;
+  }
+
+  .profile__photo {
+    height: 80px;
+    width: 80px;
+  }
+
+  .profile__user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  .profile__user-name {
+    margin-top: 12px;
+    font-size: 20px;
+    max-width: 288px;
+    text-align: center;
+  }
+
+  .profile__user-description {
+    width: 288px;
+    text-align: center;
+  }
+
+  .profile__edit-button {
+    margin-top: 32px;
+  }
+
+  .profile__new-post-button {
+    width: 288px;
+    height: 52px;
+  }
+}

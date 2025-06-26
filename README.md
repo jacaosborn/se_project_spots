@@ -5,6 +5,7 @@
 - Intro
 - Technologies and methodology
 - GitHub Page
+- Project Walkthrough Video
 
 **Intro**
 
@@ -16,3 +17,6 @@ The project utilizes HTML and CSS to create a responsive site with 6 images on e
 
 **GitHub Page**
 https://jacaosborn.github.io/se_project_spots/
+
+**Project Walkthrough Video**
+https://www.loom.com/share/1f6b6809681e4279a13f121ad1b66144
