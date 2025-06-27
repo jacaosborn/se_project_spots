@@ -51,6 +51,8 @@
 }
 
 .gallery__like-icon {
+  cursor: pointer;
+  background-color: transparent;
   background-image: url(../images/Like-Icon.png);
   background-position: center;
   background-size: cover;
@@ -74,8 +76,5 @@
   .gallery__photo-label {
     font-size: 16px;
     line-height: 1;
-  }
-  .gallery__like-icon {
-    height: 18px;
   }
 }

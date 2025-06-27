@@ -13,126 +13,126 @@
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="shortcut icon" href="./favicon.ico" />
   </head>
+
   <body class="page">
+    <header class="header">
+      <!-- logo bar -->
+      <div class="header__logo-bar">
+        <img class="header__logo" src="./images/Logo.png" alt="Spots Logo" />
+      </div>
+    </header>
     <main class="content">
-      <header class="header">
-        <!-- logo bar -->
-        <div class="header__logo-bar">
-          <img class="header__logo" src="./images/Logo.png" alt="Spots Logo" />
-        </div>
-
-        <section class="profile">
-          <!-- profile and new post section -->
-          <div class="profile__main">
-            <!--container for profile pic, user deets, and edit button-->
-            <div class="profile__avatar-section">
-              <!--container for profile pic only-->
-              <div class="profile__photo"></div>
-              <!--container for user info + edit button-->
-              <div class="profile__user-info">
-                <h1 class="profile__user-name">Bessie Coleman</h1>
-                <p class="profile__user-description">Civil Aviator</p>
-                <!--container for the edit icon and text to create a button-->
-                <button class="profile__edit-button">
-                  <img
-                    class="profile__edit-icon"
-                    src="./images/Edit-Icon.svg"
-                    alt="Edit profile button"
-                  />
-                  Edit Profile
-                </button>
-              </div>
+      <section class="profile page__section">
+        <!-- profile and new post section -->
+        <div class="profile__main">
+          <!--container for profile pic, user deets, and edit button-->
+          <div class="profile__avatar-section">
+            <!--container for profile pic only-->
+            <div class="profile__photo"></div>
+            <!--container for user info + edit button-->
+            <div class="profile__user-info">
+              <h1 class="profile__user-name">Bessie Coleman</h1>
+              <p class="profile__user-description">Civil Aviator</p>
+              <!--container for the edit icon and text to create a button-->
+              <button type="button" class="profile__edit-button">
+                <img
+                  class="profile__edit-icon"
+                  src="./images/Edit-Icon.svg"
+                  alt="Edit profile button"
+                />
+                Edit Profile
+              </button>
             </div>
-            <!--new post button-->
-            <button class="profile__new-post-button">
-              <img
-                class="profile__new-post-icon"
-                src="./images/Plus-icon.png"
-                alt="New Post Button"
-              />
-
-              New Post
-            </button>
           </div>
-        </section>
-      </header>
+          <!--new post button-->
+          <button type="button" class="profile__new-post-button">
+            <img
+              class="profile__new-post-icon"
+              src="./images/Plus-icon.png"
+              alt="New Post Button"
+            />
+
+            New Post
+          </button>
+        </div>
+      </section>
 
       <!--grid for all photos-->
-      <div class="gallery">
+      <div class="gallery page__section">
         <!--container for image, label, like-->
         <div class="gallery__content">
           <img
             src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
             alt="Image of a snowy hotel through a window"
-            class="gallery__photo gallery__val-thorens"
+            class="gallery__photo"
           />
           <!--container for label, like-->
           <div class="gallery__photo-label">
             <h2 class="gallery__photo-name">Val Thorens</h2>
-            <button class="gallery__like-icon"></button>
+            <button type="button" class="gallery__like-icon"></button>
           </div>
         </div>
         <div class="gallery__content">
           <img
             src="./images/2-photo-by-ceiline-from-pexels.jpg"
             alt="A restaurant with street seating"
-            class="gallery__photo gallery__restaurant-terrace"
+            class="gallery__photo"
           />
           <div class="gallery__photo-label">
             <h2 class="gallery__photo-name">Restaurant terrace</h2>
-            <button class="gallery__like-icon"></button>
+            <button type="button" class="gallery__like-icon"></button>
           </div>
         </div>
         <div class="gallery__content">
           <img
             src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
             alt="People eating at an outdoor cafe"
-            class="gallery__photo gallery__outdoor-cafe"
+            class="gallery__photo"
           />
           <div class="gallery__photo-label">
             <h2 class="gallery__photo-name">An outdoor cafe</h2>
-            <button class="gallery__like-icon"></button>
+            <button type="button" class="gallery__like-icon"></button>
           </div>
         </div>
         <div class="gallery__content">
           <img
             src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
             alt="A long bridge over a forest"
-            class="gallery__photo gallery__long-bridge"
+            class="gallery__photo"
           />
           <div class="gallery__photo-label">
             <h2 class="gallery__photo-name">
               A very long bridge, over the forest...
             </h2>
-            <button class="gallery__like-icon"></button>
+            <button type="button" class="gallery__like-icon"></button>
           </div>
         </div>
         <div class="gallery__content">
           <img
             src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
             alt="Tunnel with morning light"
-            class="gallery__photo gallery__tunnel"
+            class="gallery__photo"
           />
           <div class="gallery__photo-label">
             <h2 class="gallery__photo-name">Tunnel with morning light</h2>
-            <button class="gallery__like-icon"></button>
+            <button type="button" class="gallery__like-icon"></button>
           </div>
         </div>
         <div class="gallery__content">
           <img
             src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
             alt="A mountain house"
-            class="gallery__photo gallery__mountain-house"
+            class="gallery__photo"
           />
 
           <div class="gallery__photo-label">
             <h2 class="gallery__photo-name">Mountain house</h2>
-            <button class="gallery__like-icon"></button>
+            <button type="button" class="gallery__like-icon"></button>
           </div>
         </div>
       </div>
     </main>
-    <footer class="footer">
+    <footer class="footer page__section">
       <p class="footer__copyright">2023 © Spots</p>
     </footer>
   </body>

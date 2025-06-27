@@ -80,12 +80,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  background-color: #212121;
   gap: 8px;
+  border: none;
   border-radius: 8px;
   margin-bottom: 20px;
   color: #fcf5e5;
   font-weight: 500;
+}
+
+.profile__new-post-button:hover {
+  opacity: 80%;
 }
 
 @media screen and (max-width: 640px) {
