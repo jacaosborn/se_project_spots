@@ -12,9 +12,9 @@
   padding: 12px;
 }
 
-.modal_is-opened {
+/* .modal_is-opened {
   visibility: visible;
-}
+} */
 
 .modal__container {
   background-color: white;
