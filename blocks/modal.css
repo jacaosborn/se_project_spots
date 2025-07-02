@@ -1,7 +1,6 @@
 .modal {
   visibility: hidden;
   position: fixed;
-
   background-color: #00000080;
   top: 0;
   right: 0;
