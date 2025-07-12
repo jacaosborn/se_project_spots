@@ -50,6 +50,7 @@
 
 .modal__close-button:hover {
   opacity: 100%;
+  cursor: pointer;
 }
 
 .modal__title {
@@ -105,6 +106,10 @@
   color: #fcf5e5;
   border: none;
   border-radius: 8px;
+}
+
+.modal__submit-button:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 375px) {
