@@ -17,6 +17,7 @@
   flex-direction: column;
   margin: 0 0 0 0;
   max-width: 100%;
+  position: relative;
 }
 
 .gallery__photo {
@@ -64,6 +65,39 @@
 
 .gallery__like-icon:hover {
   opacity: 100%;
+}
+
+.gallery__like-icon_liked {
+  cursor: pointer;
+  background-color: transparent;
+  background-image: url(../images/State=Liked.png);
+  background-position: center;
+  background-size: cover;
+  border: none;
+  height: 20px;
+  width: 23px;
+  opacity: 100%;
+}
+
+.gallery__like-icon_liked:hover {
+  opacity: 40%;
+}
+
+.gallery__delete-icon {
+  background-color: transparent;
+  background-image: url(../images/Trash-default.png);
+  background-position: center;
+  background-size: cover;
+  border: none;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.gallery__delete-icon:hover {
+  background-image: url(../images/Trash-hover.png);
 }
 
 @media screen and (max-width: 500px) {

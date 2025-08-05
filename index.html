@@ -60,81 +60,32 @@
       <!--grid for all photos-->
       <div class="gallery page__section">
         <!--container for image, label, like-->
-        <div class="gallery__content">
-          <img
-            src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
-            alt="Image of a snowy hotel through a window"
-            class="gallery__photo"
-          />
-          <!--container for label, like-->
-          <div class="gallery__photo-label">
-            <h2 class="gallery__photo-name">Val Thorens</h2>
-            <button type="button" class="gallery__like-icon"></button>
-          </div>
-        </div>
-        <div class="gallery__content">
-          <img
-            src="./images/2-photo-by-ceiline-from-pexels.jpg"
-            alt="A restaurant with street seating"
-            class="gallery__photo"
-          />
-          <div class="gallery__photo-label">
-            <h2 class="gallery__photo-name">Restaurant terrace</h2>
-            <button type="button" class="gallery__like-icon"></button>
-          </div>
-        </div>
-        <div class="gallery__content">
-          <img
-            src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
-            alt="People eating at an outdoor cafe"
-            class="gallery__photo"
-          />
-          <div class="gallery__photo-label">
-            <h2 class="gallery__photo-name">An outdoor cafe</h2>
-            <button type="button" class="gallery__like-icon"></button>
-          </div>
-        </div>
-        <div class="gallery__content">
-          <img
-            src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
-            alt="A long bridge over a forest"
-            class="gallery__photo"
-          />
-          <div class="gallery__photo-label">
-            <h2 class="gallery__photo-name">
-              A very long bridge, over the forest
-            </h2>
-            <button type="button" class="gallery__like-icon"></button>
-          </div>
-        </div>
-        <div class="gallery__content">
-          <img
-            src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
-            alt="Tunnel with morning light"
-            class="gallery__photo"
-          />
-          <div class="gallery__photo-label">
-            <h2 class="gallery__photo-name">Tunnel with morning light</h2>
-            <button type="button" class="gallery__like-icon"></button>
-          </div>
-        </div>
-        <div class="gallery__content">
-          <img
-            src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
-            alt="A mountain house"
-            class="gallery__photo"
-          />
 
-          <div class="gallery__photo-label">
-            <h2 class="gallery__photo-name">Mountain house</h2>
-            <button type="button" class="gallery__like-icon"></button>
+        <template id="gallery__card-template">
+          <div class="gallery__content">
+            <img class="gallery__photo" />
+            <button type="button" class="gallery__delete-icon"></button>
+            <div class="gallery__photo-label">
+              <h2 class="gallery__photo-name"></h2>
+              <button type="button" class="gallery__like-icon"></button>
+            </div>
           </div>
-        </div>
+        </template>
       </div>
     </main>
     <footer class="footer page__section">
       <p class="footer__copyright">2023 © Spots</p>
     </footer>
+    <div class="modal" id="photo-expand-modal">
+      <div class="modal__image-container">
+        <button
+          type="button"
+          class="modal__close-button modal__close-button_type_expanded"
+        ></button>
+        <img src="#" class="modal__photo-expanded" />
+        <p class="modal__expand-caption"></p>
+      </div>
+    </div>
     <div class="modal" id="edit-profile-modal">
       <div class="modal__container">
         <button type="button" class="modal__close-button"></button>

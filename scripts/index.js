@@ -1,4 +1,47 @@
+// card variables/functions
+const cardTemplate = document.querySelector("#gallery__card-template");
+const gallery = document.querySelector(".gallery");
+
+function getCardElement(data) {
+  const cardElement = cardTemplate.content
+    .querySelector(".gallery__content")
+    .cloneNode(true);
+  const cardTitle = cardElement.querySelector(".gallery__photo-name");
+  const cardImg = cardElement.querySelector(".gallery__photo");
+  cardImg.src = data.link;
+  cardImg.alt = data.name;
+  cardTitle.textContent = data.name;
+
+  //like button variable and listener
+  const likeButton = cardElement.querySelector(".gallery__like-icon");
+  likeButton.addEventListener("click", function () {
+    console.log("like click");
+    likeButton.classList.toggle("gallery__like-icon");
+    likeButton.classList.toggle("gallery__like-icon_liked");
+  });
+
+  //delete button variable and listener
+  const deleteButton = cardElement.querySelector(".gallery__delete-icon");
+  deleteButton.addEventListener("click", function () {
+    cardElement.remove();
+  });
+
+  //expand image modal listener
+  cardImg.addEventListener("click", function () {
+    expandPhoto.src = data.link;
+    expandPhoto.alt = data.textContent;
+    expandName.textContent = data.name;
+    openModal(expandModal);
+  });
+
+  return cardElement;
+}
+
 let initialCards = [
+  {
+    name: "Golden Gate Bridge",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+  },
   {
     name: "Val Thorens",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
@@ -24,6 +67,12 @@ let initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
 ];
+
+initialCards.forEach(function (card) {
+  const cardElement = getCardElement(card);
+
+  gallery.prepend(cardElement);
+});
 
 // functions (general)
 function openModal(modal) {
@@ -81,6 +130,13 @@ const newPostSaveButton = newPostModal.querySelector(".modal__submit-button");
 const newPostImageInput = newPostModal.querySelector("#image-link-input");
 const newPostCaptionInput = newPostModal.querySelector("#image-caption-input");
 
+const expandModal = document.querySelector("#photo-expand-modal");
+const expandCloseBtn = expandModal.querySelector(
+  ".modal__close-button_type_expanded"
+);
+const expandPhoto = expandModal.querySelector(".modal__photo-expanded");
+const expandName = expandModal.querySelector(".modal__expand-caption");
+
 // new post listeners
 newPostButton.addEventListener("click", function () {
   openModal(newPostModal);
@@ -91,16 +147,23 @@ newPostCloseButton.addEventListener("click", function () {
 });
 
 function handleAddCardSubmit(evt) {
+  let newCard = {
+    name: newPostCaptionInput.value,
+    link: newPostImageInput.value,
+  };
   evt.preventDefault();
   console.log(newPostImageInput.value);
   console.log(newPostCaptionInput.value);
   closeModal(newPostModal);
   newPostImageInput.value = "";
   newPostCaptionInput.value = "";
+  const cardElement = getCardElement(newCard);
+
+  gallery.prepend(cardElement);
 }
 
 newPostForm.addEventListener("submit", handleAddCardSubmit);
 
-initialCards.forEach(function (card) {
-  console.log(card.name);
+expandCloseBtn.addEventListener("click", function () {
+  closeModal(expandModal);
 });
