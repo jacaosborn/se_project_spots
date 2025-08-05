@@ -54,7 +54,7 @@
 .gallery__like-icon {
   cursor: pointer;
   background-color: transparent;
-  background-image: url(../images/Like-Icon.png);
+  background-image: url(../images/like-icon.svg);
   background-position: center;
   background-size: cover;
   border: none;
@@ -70,7 +70,7 @@
 .gallery__like-icon_liked {
   cursor: pointer;
   background-color: transparent;
-  background-image: url(../images/State=Liked.png);
+  background-image: url(../images/like-icon-liked.svg);
   background-position: center;
   background-size: cover;
   border: none;
@@ -85,7 +85,7 @@
 
 .gallery__delete-icon {
   background-color: transparent;
-  background-image: url(../images/Trash-default.png);
+  background-image: url(../images/trash-default.svg);
   background-position: center;
   background-size: cover;
   border: none;
@@ -97,7 +97,8 @@
 }
 
 .gallery__delete-icon:hover {
-  background-image: url(../images/Trash-hover.png);
+  background-image: url(../images/trash-hover.svg);
+  cursor: pointer;
 }
 
 @media screen and (max-width: 500px) {

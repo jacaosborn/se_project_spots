@@ -155,8 +155,8 @@ function handleAddCardSubmit(evt) {
   console.log(newPostImageInput.value);
   console.log(newPostCaptionInput.value);
   closeModal(newPostModal);
-  newPostImageInput.value = "";
-  newPostCaptionInput.value = "";
+  evt.target.reset();
+
   const cardElement = getCardElement(newCard);
 
   gallery.prepend(cardElement);
