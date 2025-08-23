@@ -74,12 +74,31 @@ initialCards.forEach(function (card) {
   gallery.prepend(cardElement);
 });
 
+function escapeKeyHandler(modalToClose) {
+  return function (evt) {
+    if (evt.key === "Escape") {
+      closeModal(modalToClose);
+    }
+  };
+}
+
+function clickOffHandler(evt) {
+  if (evt.target.classList.contains("modal")) {
+    evt.target.classList.remove("modal_is-opened");
+  }
+  console.log("test");
+}
+
 // functions (general)
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  modal.keyDownHandler = escapeKeyHandler(modal);
+  window.addEventListener("keydown", modal.keyDownHandler);
+  modal.addEventListener("mousedown", clickOffHandler);
 }
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  window.removeEventListener("keydown", modal.keyDownHandler);
 }
 
 // edit profile variables
@@ -167,3 +186,7 @@ newPostForm.addEventListener("submit", handleAddCardSubmit);
 expandCloseBtn.addEventListener("click", function () {
   closeModal(expandModal);
 });
+
+//this happens on mouseup - need to fix it
+
+// this needs to only happen when a modal has been opened
