@@ -186,7 +186,3 @@ newPostForm.addEventListener("submit", handleAddCardSubmit);
 expandCloseBtn.addEventListener("click", function () {
   closeModal(expandModal);
 });
-
-//this happens on mouseup - need to fix it
-
-// this needs to only happen when a modal has been opened
