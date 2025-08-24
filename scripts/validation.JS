@@ -6,7 +6,7 @@ const validationSettings = {
   submitButtonSelector: ".modal__submit-button",
   inactiveButtonClass: "modal__submit-button_disabled",
   inputErrorClass: "modal__input_type_error",
-  errorClass: ".modal__input-error-active",
+  errorClass: "modal__error-visible",
 };
 
 const hasInvalidInput = (inputList) => {
@@ -57,9 +57,11 @@ function setEventListeners(formElement, settings) {
   const buttonElement = formElement.querySelector(
     settings.submitButtonSelector
   );
+
   const inputList = Array.from(
     formElement.querySelectorAll(settings.inputSelector)
   );
+  toggleButtonState(inputList, buttonElement);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formElement, inputElement);

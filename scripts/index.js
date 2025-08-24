@@ -15,7 +15,6 @@ function getCardElement(data) {
   //like button variable and listener
   const likeButton = cardElement.querySelector(".gallery__like-icon");
   likeButton.addEventListener("click", function () {
-    console.log("like click");
     likeButton.classList.toggle("gallery__like-icon");
     likeButton.classList.toggle("gallery__like-icon_liked");
   });
@@ -29,7 +28,7 @@ function getCardElement(data) {
   //expand image modal listener
   cardImg.addEventListener("click", function () {
     expandPhoto.src = data.link;
-    expandPhoto.alt = data.textContent;
+    expandPhoto.alt = data.name;
     expandName.textContent = data.name;
     openModal(expandModal);
   });
@@ -82,11 +81,12 @@ function escapeKeyHandler(modalToClose) {
   };
 }
 
-function clickOffHandler(evt) {
-  if (evt.target.classList.contains("modal")) {
-    evt.target.classList.remove("modal_is-opened");
-  }
-  console.log("test");
+function clickOffHandler(modalToClose) {
+  return function (evt) {
+    if (evt.target.classList.contains("modal")) {
+      closeModal(modalToClose);
+    }
+  };
 }
 
 // functions (general)
@@ -94,11 +94,13 @@ function openModal(modal) {
   modal.classList.add("modal_is-opened");
   modal.keyDownHandler = escapeKeyHandler(modal);
   window.addEventListener("keydown", modal.keyDownHandler);
-  modal.addEventListener("mousedown", clickOffHandler);
+  modal.clickToCloseHandler = clickOffHandler(modal);
+  modal.addEventListener("mousedown", modal.clickToCloseHandler);
 }
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
   window.removeEventListener("keydown", modal.keyDownHandler);
+  modal.removeEventListener("mousedown", modal.clickOffHandler);
 }
 
 // edit profile variables
@@ -171,8 +173,7 @@ function handleAddCardSubmit(evt) {
     link: newPostImageInput.value,
   };
   evt.preventDefault();
-  console.log(newPostImageInput.value);
-  console.log(newPostCaptionInput.value);
+
   closeModal(newPostModal);
   evt.target.reset();
 
