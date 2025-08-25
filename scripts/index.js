@@ -12,10 +12,12 @@ function getCardElement(data) {
   cardImg.alt = data.name;
   cardTitle.textContent = data.name;
 
+  const profileForm = document.forms["profile-form"];
+  const postForm = document.forms["post-form"];
+
   //like button variable and listener
   const likeButton = cardElement.querySelector(".gallery__like-icon");
   likeButton.addEventListener("click", function () {
-    likeButton.classList.toggle("gallery__like-icon");
     likeButton.classList.toggle("gallery__like-icon_liked");
   });
 
@@ -36,7 +38,7 @@ function getCardElement(data) {
   return cardElement;
 }
 
-let initialCards = [
+const initialCards = [
   {
     name: "Golden Gate Bridge",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
@@ -125,6 +127,7 @@ const profileDescriptionInput = editProfileModal.querySelector(
 // edit profile listeners and function
 editProfileButton.addEventListener("click", function () {
   openModal(editProfileModal);
+  disableButton(profileModalSaveButton, validationSettings);
   profileNameInput.value = profileUserName.textContent;
   profileDescriptionInput.value = profileUserDescription.textContent;
 });
@@ -161,6 +164,7 @@ const expandName = expandModal.querySelector(".modal__expand-caption");
 // new post listeners
 newPostButton.addEventListener("click", function () {
   openModal(newPostModal);
+  disableButton(newPostSaveButton, validationSettings);
 });
 
 newPostCloseButton.addEventListener("click", function () {
@@ -168,7 +172,7 @@ newPostCloseButton.addEventListener("click", function () {
 });
 
 function handleAddCardSubmit(evt) {
-  let newCard = {
+  const newCard = {
     name: newPostCaptionInput.value,
     link: newPostImageInput.value,
   };
