@@ -127,9 +127,12 @@ const profileDescriptionInput = editProfileModal.querySelector(
 // edit profile listeners and function
 editProfileButton.addEventListener("click", function () {
   openModal(editProfileModal);
-  disableButton(profileModalSaveButton, validationSettings);
   profileNameInput.value = profileUserName.textContent;
   profileDescriptionInput.value = profileUserDescription.textContent;
+  resetValidation(editProfileModal, [
+    profileNameInput,
+    profileDescriptionInput,
+  ]);
 });
 
 editProfileCloseButton.addEventListener("click", function () {
@@ -164,7 +167,6 @@ const expandName = expandModal.querySelector(".modal__expand-caption");
 // new post listeners
 newPostButton.addEventListener("click", function () {
   openModal(newPostModal);
-  disableButton(newPostSaveButton, validationSettings);
 });
 
 newPostCloseButton.addEventListener("click", function () {
@@ -180,7 +182,7 @@ function handleAddCardSubmit(evt) {
 
   closeModal(newPostModal);
   evt.target.reset();
-
+  disableButton(newPostSaveButton, config);
   const cardElement = getCardElement(newCard);
 
   gallery.prepend(cardElement);
