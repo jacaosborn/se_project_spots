@@ -129,10 +129,11 @@ editProfileButton.addEventListener("click", function () {
   openModal(editProfileModal);
   profileNameInput.value = profileUserName.textContent;
   profileDescriptionInput.value = profileUserDescription.textContent;
-  resetValidation(editProfileModal, [
-    profileNameInput,
-    profileDescriptionInput,
-  ]);
+  resetValidation(
+    editProfileModal,
+    [profileNameInput, profileDescriptionInput],
+    validationSettings
+  );
 });
 
 editProfileCloseButton.addEventListener("click", function () {
@@ -144,6 +145,7 @@ function handleProfileFormSubmit(evt) {
   profileUserName.textContent = profileNameInput.value;
   profileUserDescription.textContent = profileDescriptionInput.value;
   closeModal(editProfileModal);
+  disableButton(profileModalSaveButton, validationSettings);
 }
 
 editProfileForm.addEventListener("submit", handleProfileFormSubmit);
@@ -182,7 +184,7 @@ function handleAddCardSubmit(evt) {
 
   closeModal(newPostModal);
   evt.target.reset();
-  disableButton(newPostSaveButton, config);
+  disableButton(newPostSaveButton, validationSettings);
   const cardElement = getCardElement(newCard);
 
   gallery.prepend(cardElement);
