@@ -77,3 +77,5 @@ function setEventListeners(formElement, config) {
 }
 
 enableValidation(validationSettings);
+
+export { enableValidation, disableButton, resetValidation, validationSettings };

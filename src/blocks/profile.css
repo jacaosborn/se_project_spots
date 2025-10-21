@@ -18,6 +18,32 @@
   background-position: center;
   background-image: url(../images/avatar.jpg);
   border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  transition: 400ms;
+  color: #fff;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.profile__photo-edit-button {
+  visibility: hidden;
+  position: relative;
+  bottom: 8px;
+}
+.profile__photo:hover {
+  cursor: pointer;
+  filter: brightness(0.7);
+}
+.profile__photo:hover .profile__photo-edit-button {
+  visibility: visible;
+}
+
+.profile__photo-edit-icon {
+  width: 15px;
+  height: 15px;
+}
+.profile__photo-edit-text {
 }
 
 .profile__user-info {
@@ -103,12 +129,23 @@
   .profile__avatar-section {
     flex-direction: column;
     align-items: center;
-    margin: 0 0 20px;
+    margin: 0 0 0;
   }
 
   .profile__photo {
     height: 80px;
     width: 80px;
+  }
+
+  .profile__photo-edit-icon {
+    visibility: visible;
+    background-color: #21212199;
+    border-radius: 6px;
+    height: 24px;
+    width: 24px;
+    position: relative;
+    top: 27px;
+    left: 52px;
   }
 
   .profile__user-info {
