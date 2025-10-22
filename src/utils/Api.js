@@ -4,21 +4,27 @@ export default class Api {
     this._headers = headers;
   }
 
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Error: ${res.status}`);
+  }
+
   getAppInfo() {
     return Promise.all([this.getInitialCards(), this.getUserInfo()]);
   }
-
+  // ATTENTION CODE CHECKER:
+  // need assistance on this. When I change the url in the fetch to
+  // `${this._baseUrl}cards`, it breaks. I can't figure out how to fix it
+  // same thing happens with all other fetches. Something wrong with the api
+  // construction on index.js I assume, but I don't know what.
   getInitialCards() {
     return fetch("https://around-api.en.tripleten-services.com/v1/cards", {
       headers: {
         authorization: "88f5c885-c80c-45a1-8fab-3e371eeed876",
       },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    }).then(this._checkResponse);
   }
 
   getUserInfo() {
@@ -26,12 +32,7 @@ export default class Api {
       headers: {
         authorization: "88f5c885-c80c-45a1-8fab-3e371eeed876",
       },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    }).then(this._checkResponse);
   }
   editUserInfo({ name, about }) {
     return fetch(`https://around-api.en.tripleten-services.com/v1/users/me`, {
@@ -42,12 +43,7 @@ export default class Api {
       },
 
       body: JSON.stringify({ name, about }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    }).then(this._checkResponse);
   }
   addNewPhoto({ name, link }) {
     return fetch(`https://around-api.en.tripleten-services.com/v1/cards`, {
@@ -58,12 +54,7 @@ export default class Api {
       },
 
       body: JSON.stringify({ name, link }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    }).then(this._checkResponse);
   }
 
   removeCard(cardId) {
@@ -75,12 +66,7 @@ export default class Api {
           authorization: "88f5c885-c80c-45a1-8fab-3e371eeed876",
         },
       }
-    ).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    ).then(this._checkResponse);
   }
   addLike(cardId) {
     return fetch(
@@ -92,12 +78,7 @@ export default class Api {
           "Content-Type": "application/JSON",
         },
       }
-    ).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    ).then(this._checkResponse);
   }
 
   removeLike(cardId) {
@@ -110,12 +91,7 @@ export default class Api {
           "Content-Type": "application/JSON",
         },
       }
-    ).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    ).then(this._checkResponse);
   }
 
   editAvatar(avatar) {
@@ -129,24 +105,6 @@ export default class Api {
         },
         body: JSON.stringify({ avatar }),
       }
-    ).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    ).then(this._checkResponse);
   }
 }
-
-//   test() {
-//     fetch("https://around-api.en.tripleten-services.com/v1/cards", {
-//       headers: {
-//         authorization: "88f5c885-c80c-45a1-8fab-3e371eeed876",
-//       },
-//     })
-//       .then((res) => res.json())
-//       .then((res) => {
-//         console.log(res);
-//       });
-//   }
-// }

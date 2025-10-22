@@ -44,13 +44,9 @@ api
 
     userAvatar.style.backgroundImage = `url(${userInfo.avatar})`;
   })
-  .catch(console.error);
-
-// initialCards.forEach(function (card) {
-//   const cardElement = getCardElement(card);
-
-//   gallery.prepend(cardElement);
-// });
+  .catch(() => {
+    console.error;
+  });
 
 // card variables/functions
 const cardTemplate = document.querySelector("#gallery__card-template");
@@ -63,8 +59,12 @@ function handleDeleteSubmit(cardElement, cardId) {
     .then(() => {
       cardElement.remove();
     })
-    .then(closeModal(deleteConfirmationModal))
-    .catch(console.error)
+    .then(() => {
+      closeModal(deleteConfirmationModal);
+    })
+    .catch(() => {
+      console.error;
+    })
     .finally(() => {
       deleteConfirmationSubmitButton.textContent = "Delete";
     });
@@ -74,15 +74,6 @@ function handleDeleteCard(cardElement, cardId) {
   selectedCard = cardElement;
   selectedCardId = cardId;
   openModal(deleteConfirmationModal);
-  deleteConfirmationCloseButton.addEventListener("click", function () {
-    closeModal(deleteConfirmationModal);
-  });
-  deleteConfirmationCancelButton.addEventListener("click", function () {
-    closeModal(deleteConfirmationModal);
-  });
-  deleteConfirmationSubmitButton.addEventListener("click", function () {
-    handleDeleteSubmit(selectedCard, selectedCardId);
-  });
 }
 
 function getCardElement(data) {
@@ -99,24 +90,29 @@ function getCardElement(data) {
     likeButton.classList.add("gallery__like-icon_liked");
   }
 
-  const profileForm = document.forms["profile-form"];
-  const postForm = document.forms["post-form"];
-
   //like button variable and listener
 
   likeButton.addEventListener("click", function () {
     if (likeButton.classList.contains("gallery__like-icon_liked")) {
       api
         .removeLike(data._id)
-        .then((res) => console.log(res))
-        .then(likeButton.classList.toggle("gallery__like-icon_liked"))
-        .catch(console.error);
+
+        .then(() => {
+          likeButton.classList.toggle("gallery__like-icon_liked");
+        })
+        .catch(() => {
+          console.error;
+        });
     } else {
       api
         .addLike(data._id)
-        .then((res) => console.log(res))
-        .then(likeButton.classList.toggle("gallery__like-icon_liked"))
-        .catch(console.error);
+
+        .then(() => {
+          likeButton.classList.toggle("gallery__like-icon_liked");
+        })
+        .catch(() => {
+          console.error;
+        });
     }
   });
 
@@ -136,43 +132,6 @@ function getCardElement(data) {
 
   return cardElement;
 }
-
-// const initialCards = [
-//   {
-//     name: "Golden Gate Bridge",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
-//   },
-//   {
-//     name: "Val Thorens",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-//   },
-//   {
-//     name: "Restaurant terrace",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-//   },
-//   {
-//     name: "An outdoor cafe",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-//   },
-//   {
-//     name: "A very long bridge, over the forest and through the trees",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-//   },
-//   {
-//     name: "Tunnel with morning light",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-//   },
-//   {
-//     name: "Mountain house",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-//   },
-// ];
-
-// initialCards.forEach(function (card) {
-//   const cardElement = getCardElement(card);
-
-//   gallery.prepend(cardElement);
-// });
 
 function escapeKeyHandler(modalToClose) {
   return function (evt) {
@@ -250,13 +209,16 @@ function handleAvatarFormSubmit(evt) {
     .editAvatar(editAvatarInput.value)
     .then((data) => {
       userAvatar.style.backgroundImage = `url(${data.avatar})`;
+      closeModal(editAvatarModal);
+      disableButton(editAvatarSubmitButton, validationSettings);
     })
-    .catch(console.error)
+
+    .catch((error) => {
+      console.error(error);
+    })
     .finally(() => {
       submitButton.textContent = "Save";
     });
-  closeModal(editAvatarModal);
-  disableButton(editAvatarSubmitButton, validationSettings);
 }
 
 editProfileButton.addEventListener("click", function () {
@@ -286,14 +248,15 @@ function handleProfileFormSubmit(evt) {
     .then((data) => {
       profileUserName.textContent = data.name;
       profileUserDescription.textContent = data.about;
+      closeModal(editProfileModal);
+      disableButton(profileModalSaveButton, validationSettings);
     })
-    .catch(console.error)
+    .catch(() => {
+      console.error;
+    })
     .finally(() => {
       submitButton.textContent = "Save";
     });
-
-  closeModal(editProfileModal);
-  disableButton(profileModalSaveButton, validationSettings);
 }
 
 editProfileForm.addEventListener("submit", handleProfileFormSubmit);
@@ -334,19 +297,29 @@ function handleAddCardSubmit(evt) {
     })
     .then((newCard) => {
       gallery.prepend(getCardElement(newCard));
+      closeModal(newPostModal);
+      evt.target.reset();
+      disableButton(newPostSaveButton, validationSettings);
     })
-    .catch(console.error)
+    .catch(() => {
+      console.error;
+    })
     .finally(() => {
       submitButton.textContent = "Save";
     });
-
-  closeModal(newPostModal);
-  evt.target.reset();
-  disableButton(newPostSaveButton, validationSettings);
 }
 
 newPostForm.addEventListener("submit", handleAddCardSubmit);
 
 expandCloseBtn.addEventListener("click", function () {
   closeModal(expandModal);
+});
+deleteConfirmationCloseButton.addEventListener("click", function () {
+  closeModal(deleteConfirmationModal);
+});
+deleteConfirmationCancelButton.addEventListener("click", function () {
+  closeModal(deleteConfirmationModal);
+});
+deleteConfirmationSubmitButton.addEventListener("click", function () {
+  handleDeleteSubmit(selectedCard, selectedCardId);
 });
